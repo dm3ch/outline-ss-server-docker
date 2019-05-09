@@ -8,13 +8,13 @@ SSS_PATH="/usr/bin/shadowsocks-server"
 
 CONFIG_PATH=${CONFIG_PATH:-/etc/shadowsocks/config.yml}
 UDP_TIMEOUT=${UDP_TIMEOUT:-5m0s}
-VERBOSE=${VERBOSE:-}
+VERBOSE=${VERBOSE:-False}
 GEOIP_COUNTRY_PATH=${GEOIP_COUNTRY_PATH:-}
 METRICS_ADDRESS=${METRICS_ADDRESS:-}
 
 ARGS="-config=$CONFIG_PATH -udptimeout=$UDP_TIMEOUT"
 
-if [ $VERBOSE ]
+if [ "$VERBOSE" != "False" && "$VERBOSE" != "false" ]
 then
     ARGS="$ARGS -verbose"
 fi
