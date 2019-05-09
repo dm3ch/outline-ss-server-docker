@@ -14,17 +14,17 @@ METRICS_ADDRESS=${METRICS_ADDRESS:-}
 
 ARGS="-config=$CONFIG_PATH -udptimeout=$UDP_TIMEOUT"
 
-if [ "$VERBOSE" != "False" && "$VERBOSE" != "false" ]
+if [[ "$VERBOSE" != "False" && "$VERBOSE" != "false" ]]
 then
     ARGS="$ARGS -verbose"
 fi
 
-if [ $GEOIP_COUNTRY_PATH ]
+if [[ $GEOIP_COUNTRY_PATH ]]
 then
     ARGS="$ARGS -ip_country_db=$GEOIP_COUNTRY_PATH"
 fi
 
-if [ $METRICS_ADDRESS ]
+if [[ $METRICS_ADDRESS ]]
 then
     ARGS="$ARGS -metrics=$METRICS_ADDRESS"
 fi
